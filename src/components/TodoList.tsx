@@ -204,19 +204,14 @@ export const TodoList: React.FC = () => {
   );
 
   return (
-    <section className="todoapp__main" data-cy="TodoList">
+    <section className="todoapp__main">
       {visibleTodos.map(todo => {
         const { id, title, completed } = todo;
 
         return (
-          <div
-            key={id}
-            data-cy="Todo"
-            className={classNames('todo', { completed })}
-          >
+          <div key={id} className={classNames('todo', { completed })}>
             <label className="todo__status-label">
               <input
-                data-cy="TodoStatus"
                 type="checkbox"
                 className="todo__status"
                 checked={completed}
@@ -228,7 +223,6 @@ export const TodoList: React.FC = () => {
               <form onSubmit={event => handleSubmitEditingTodo(event, todo)}>
                 <input
                   ref={editingTodoField}
-                  data-cy="TodoTitleField"
                   type="text"
                   className="todo__title-field"
                   placeholder="Empty todo will be deleted"
@@ -242,7 +236,6 @@ export const TodoList: React.FC = () => {
             ) : (
               <>
                 <span
-                  data-cy="TodoTitle"
                   className="todo__title"
                   onDoubleClick={() => startEditTodo(id, title)}
                 >
@@ -252,7 +245,6 @@ export const TodoList: React.FC = () => {
                 <button
                   type="button"
                   className="todo__remove"
-                  data-cy="TodoDelete"
                   onClick={() => handleDeleteTodo(id)}
                 >
                   ×
@@ -261,7 +253,6 @@ export const TodoList: React.FC = () => {
             )}
 
             <div
-              data-cy="TodoLoader"
               className={classNames('modal', 'overlay', {
                 'is-active':
                   updatingTodoId === id ||
@@ -278,30 +269,18 @@ export const TodoList: React.FC = () => {
 
       {!!tempTodo && (
         <>
-          <div data-cy="Todo" className="todo">
+          <div className="todo">
             <label className="todo__status-label">
-              <input
-                data-cy="TodoStatus"
-                type="checkbox"
-                className="todo__status"
-                disabled
-              />
+              <input type="checkbox" className="todo__status" disabled />
             </label>
 
-            <span data-cy="TodoTitle" className="todo__title">
-              {tempTodo.title}
-            </span>
+            <span className="todo__title">{tempTodo.title}</span>
 
-            <button
-              type="button"
-              className="todo__remove"
-              data-cy="TodoDelete"
-              disabled
-            >
+            <button type="button" className="todo__remove" disabled>
               ×
             </button>
 
-            <div data-cy="TodoLoader" className="modal overlay is-active">
+            <div className="modal overlay is-active">
               <div className="modal-background has-background-white-ter" />
               <div className="loader" />
             </div>

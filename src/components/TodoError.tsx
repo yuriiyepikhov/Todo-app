@@ -9,7 +9,6 @@ export const TodoError: React.FC = () => {
 
   return (
     <div
-      data-cy="ErrorNotification"
       className={classNames(
         'notification',
         'is-danger',
@@ -19,7 +18,6 @@ export const TodoError: React.FC = () => {
       )}
     >
       <button
-        data-cy="HideErrorButton"
         type="button"
         className="delete"
         onClick={() => setErrorText(null)}

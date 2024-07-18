@@ -142,7 +142,6 @@ export const TodoApp: React.FC = () => {
           className={classNames('todoapp__toggle-all', {
             active: isEveryTodoCompleted,
           })}
-          data-cy="ToggleAllButton"
           onClick={handleToggleAllTodos}
         />
       )}
@@ -150,7 +149,6 @@ export const TodoApp: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <input
           ref={newTodoField}
-          data-cy="NewTodoField"
           type="text"
           className="todoapp__new-todo"
           placeholder="What needs to be done?"

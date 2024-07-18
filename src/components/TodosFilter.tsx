@@ -79,20 +79,19 @@ export const TodosFilter: React.FC = () => {
   };
 
   return (
-    <footer className="todoapp__footer" data-cy="Footer">
-      <span className="todo-count" data-cy="TodosCounter">
+    <footer className="todoapp__footer">
+      <span className="todo-count">
         {notCompletedQty !== 1
           ? `${notCompletedQty} items left`
           : '1 item left'}
       </span>
 
-      <nav className="filter" data-cy="Filter">
+      <nav className="filter">
         <a
           href="#/"
           className={classNames('filter__link', {
             selected: filterOption === FilterOption.all,
           })}
-          data-cy="FilterLinkAll"
           onClick={() => setFilterOption(FilterOption.all)}
         >
           {FilterOption.all}
@@ -103,7 +102,6 @@ export const TodosFilter: React.FC = () => {
           className={classNames('filter__link', {
             selected: filterOption === FilterOption.active,
           })}
-          data-cy="FilterLinkActive"
           onClick={() => setFilterOption(FilterOption.active)}
         >
           {FilterOption.active}
@@ -114,7 +112,6 @@ export const TodosFilter: React.FC = () => {
           className={classNames('filter__link', {
             selected: filterOption === FilterOption.completed,
           })}
-          data-cy="FilterLinkCompleted"
           onClick={() => setFilterOption(FilterOption.completed)}
         >
           {FilterOption.completed}
@@ -124,7 +121,6 @@ export const TodosFilter: React.FC = () => {
       <button
         type="button"
         className="todoapp__clear-completed"
-        data-cy="ClearCompletedButton"
         disabled={!completedQty}
         onClick={handleClearCompletedTodos}
       >
